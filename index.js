@@ -17,12 +17,11 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Rota para o servidor da página HTML principal
+//
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Rotas para cadastrar cliente
 app.post('/cliente', async (req, res) => {
     const { nome, cpf, datanascimento, celular, endereco } = req.body;
     const queryText = 'INSERT INTO cliente (nome, cpf, datanascimento, celular, endereco) VALUES ($1, $2, $3, $4, $5) RETURNING *';
@@ -37,7 +36,7 @@ app.post('/cliente', async (req, res) => {
     }
 });
 
-// Rota para consultar os dados da tabela Cliente
+
 app.get('/cliente', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM cliente');
@@ -47,7 +46,6 @@ app.get('/cliente', async (req, res) => {
     }
 });
 
-// Rota para editar cliente
 app.put('/cliente/:id', async (req, res) => {
     const { id } = req.params;
     const { nome, cpf, datanascimento, celular, endereco } = req.body;
@@ -63,7 +61,7 @@ app.put('/cliente/:id', async (req, res) => {
     }
 });
 
-// Rota para deletar cliente
+
 app.delete('/cliente/:id', async (req, res) => {
     const { id } = req.params;
     const queryText = 'DELETE FROM cliente WHERE id = $1 RETURNING *';
@@ -78,7 +76,6 @@ app.delete('/cliente/:id', async (req, res) => {
     }
 });
 
-// Rotas para cadastrar produto
 app.post('/produto', async (req, res) => {
     const { nome, fabricante, modelo, ano, descricao, preco } = req.body;
     const queryText = 'INSERT INTO produto (nome, fabricante, modelo, ano, descricao, preco) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *';
@@ -119,7 +116,7 @@ app.put('/produto/:id', async (req, res) => {
     }
 });
 
-// Rota para deletar produto
+
 app.delete('/produto/:id', async (req, res) => {
     const { id } = req.params;
     const queryText = 'DELETE FROM produto WHERE id = $1 RETURNING *';
@@ -134,7 +131,7 @@ app.delete('/produto/:id', async (req, res) => {
     }
 });
 
-// Rotas para cadastrar funcionário
+
 app.post('/funcionario', async (req, res) => {
     const { nome, datanascimento, cpf, celular, endereco, funcao } = req.body;
     const queryText = 'INSERT INTO funcionario (nome, datanascimento, cpf, celular, endereco, funcao) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *';
