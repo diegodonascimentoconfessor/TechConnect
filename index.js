@@ -17,7 +17,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-//
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
@@ -35,7 +34,6 @@ app.post('/cliente', async (req, res) => {
         res.status(500).send('Erro interno ao processar a solicitação');
     }
 });
-
 
 app.get('/cliente', async (req, res) => {
     try {
@@ -60,7 +58,6 @@ app.put('/cliente/:id', async (req, res) => {
         res.status(500).send('Erro interno ao processar a solicitação');
     }
 });
-
 
 app.delete('/cliente/:id', async (req, res) => {
     const { id } = req.params;
@@ -90,7 +87,6 @@ app.post('/produto', async (req, res) => {
     }
 });
 
-// Rota para consultar produtos
 app.get('/produto', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM produto');
@@ -100,7 +96,6 @@ app.get('/produto', async (req, res) => {
     }
 });
 
-// Rota para editar produto
 app.put('/produto/:id', async (req, res) => {
     const { id } = req.params;
     const { nome, fabricante, modelo, ano, descricao, preco } = req.body;
@@ -116,7 +111,6 @@ app.put('/produto/:id', async (req, res) => {
     }
 });
 
-
 app.delete('/produto/:id', async (req, res) => {
     const { id } = req.params;
     const queryText = 'DELETE FROM produto WHERE id = $1 RETURNING *';
@@ -130,7 +124,6 @@ app.delete('/produto/:id', async (req, res) => {
         res.status(500).send('Erro interno ao processar a solicitação');
     }
 });
-
 
 app.post('/funcionario', async (req, res) => {
     const { nome, datanascimento, cpf, celular, endereco, funcao } = req.body;
@@ -146,7 +139,6 @@ app.post('/funcionario', async (req, res) => {
     }
 });
 
-// Rota para consultar funcionários
 app.get('/funcionario', async (req, res) => {
     try {
         const result = await pool.query('SELECT * FROM funcionario');
@@ -156,7 +148,6 @@ app.get('/funcionario', async (req, res) => {
     }
 });
 
-// Rota para editar funcionário
 app.put('/funcionario/:id', async (req, res) => {
     const { id } = req.params;
     const { nome, datanascimento, cpf, celular, endereco, funcao } = req.body;
@@ -172,7 +163,6 @@ app.put('/funcionario/:id', async (req, res) => {
     }
 });
 
-// Rota para deletar funcionário
 app.delete('/funcionario/:id', async (req, res) => {
     const { id } = req.params;
     const queryText = 'DELETE FROM funcionario WHERE id = $1 RETURNING *';
@@ -187,6 +177,10 @@ app.delete('/funcionario/:id', async (req, res) => {
     }
 });
 
+app.get('/dados', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'dados.html'));
+});
+
 app.listen(port, () => {
-    console.log(`Servidor tá on! imposto é roubo, sonegar é Legítima Defesa  http://localhost:${port}`);
+    console.log(`Servidor tá on! http://localhost:${port}`);
 });

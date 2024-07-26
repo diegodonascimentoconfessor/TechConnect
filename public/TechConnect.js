@@ -89,3 +89,34 @@ async function deleteRow(button) {
         console.error('Erro ao excluir a linha:', response.statusText);
     }
 }
+
+
+
+async function submitForm(event, type) {
+    event.preventDefault();
+    console.log(`Formulário enviado: ${type}`);
+
+    const form = document.getElementById(`${type}Form`);
+    const formData = new FormData(form);
+    const data = Object.fromEntries(formData.entries());
+    console.log(`Dados do formulário:`, data);
+
+    const response = await fetch(`/${type}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+        const result = await response.json();
+        addRowToTable(`${type}Form`, `${type}Table`, Object.values(result));
+        form.reset();
+    
+        window.location.href = 'dados.html';
+    } else {
+        console.error('Erro ao enviar o formulário:', response.statusText);
+    }
+}
+
