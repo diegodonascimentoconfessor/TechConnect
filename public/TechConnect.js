@@ -41,13 +41,13 @@ async function submitForm(event, type) {
     if (response.ok) {
         const result = await response.json();
         addRowToTable(`${type}Form`, `${type}Table`, Object.values(result));
-        form.reset(); // Limpa o formulário após o envio
+        form.reset();
     } else {
         console.error('Erro ao enviar o formulário:', response.statusText);
     }
 }
 
-// Função para editar uma linha da tabela
+
 function editRow(button) {
     console.log(`Editando linha`);
     const row = button.parentElement.parentElement;
@@ -65,22 +65,21 @@ function editRow(button) {
     });
 
     document.getElementById(`${formId}Id`).value = row.rowIndex;
-    showSection(formId.replace('Form', '')); // Mostrar a seção do formulário
+    showSection(formId.replace('Form', ''));
 }
 
 async function deleteRow(button) {
     console.log(`Excluindo linha`);
     const row = button.parentElement.parentElement;
-    const id = row.cells[0].textContent; // Assumindo que o ID está na primeira célula da linha
+    const id = row.cells[0].textContent; 
 
-    // Confirmar a exclusão com o usuário
     if (confirm(`Deseja realmente excluir o item com ID ${id}?`)) {
         try {
-            // Determinar o endpoint com base na tabela
+         
             const tableId = row.parentElement.parentElement.id;
             const endpoint = `/${tableId.replace('Table', '')}/${id}`;
             
-            // Enviar solicitação de exclusão para o servidor
+          
             const response = await fetch(endpoint, {
                 method: 'DELETE',
                 headers: {
