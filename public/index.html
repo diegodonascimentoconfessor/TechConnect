@@ -17,7 +17,7 @@
     <div id="container">
         <section id="clientes" class="section">
             <h2>Clientes</h2>
-            <!-- Formulário de Cliente -->
+           
             <form id="clienteForm" onsubmit="submitForm(event, 'cliente')">
                 <input type="hidden" id="clienteId">
                 <label for="clienteNome">Nome:</label>
@@ -31,11 +31,10 @@
                 <label for="clienteEndereco">Endereço:</label>
                 <input type="text" id="clienteEndereco" name="endereco">
                 <button type="submit">Salvar</button>
-                <button type="button" onclick="editRow()">Editar</button>
-                <button type="button" onclick="deleteRow()">Excluir</button>
-                <button type="button" onclick="cancelEdit()">Cancelar</button>
+                <button type="button" onclick="editRow(this)">Editar</button>
+                <button type="button" onclick="deleteRow(this)">Excluir</button>
             </form>
-            <!-- Tabela de Clientes -->
+          
             <table id="clienteTable">
                 <thead>
                     <tr>
@@ -53,7 +52,7 @@
 
         <section id="produtos" class="section">
             <h2>Produtos</h2>
-            <!-- Formulário de Produto -->
+          
             <form id="produtoForm" onsubmit="submitForm(event, 'produto')">
                 <input type="hidden" id="produtoId">
                 <label for="produtoNome">Nome:</label>
@@ -69,11 +68,10 @@
                 <label for="produtoPreco">Preço:</label>
                 <input type="number" step="0.01" id="produtoPreco" name="preco" required>
                 <button type="submit">Salvar</button>
-                <button type="button" onclick="editRow()">Editar</button>
-                <button type="button" onclick="deleteRow()">Excluir</button>
-                <button type="button" onclick="cancelEdit()">Cancelar</button>
+                <button type="button" onclick="editRow(this)">Editar</button>
+                <button type="button" onclick="deleteRow(this)">Excluir</button>
             </form>
-            <!-- Tabela de Produtos -->
+       
             <table id="produtoTable">
                 <thead>
                     <tr>
@@ -92,7 +90,7 @@
 
         <section id="funcionarios" class="section">
             <h2>Funcionários</h2>
-            <!-- Formulário de Funcionário -->
+           
             <form id="funcionarioForm" onsubmit="submitForm(event, 'funcionario')">
                 <input type="hidden" id="funcionarioId">
                 <label for="funcionarioNome">Nome:</label>
@@ -108,11 +106,10 @@
                 <label for="funcionarioFuncao">Função:</label>
                 <input type="text" id="funcionarioFuncao" name="funcao" required>
                 <button type="submit">Salvar</button>
-                <button type="button" onclick="editRow()">Editar</button>
-                <button type="button" onclick="deleteRow()">Excluir</button>
-                
+                <button type="button" onclick="editRow(this)">Editar</button>
+                <button type="button" onclick="deleteRow(this)">Excluir</button>
             </form>
-            <!-- Tabela de Funcionários -->
+            
             <table id="funcionarioTable">
                 <thead>
                     <tr>
