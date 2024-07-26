@@ -188,5 +188,5 @@ app.delete('/funcionario/:id', async (req, res) => {
 });
 
 app.listen(port, () => {
-    console.log(`Servidor tá on! imposto é roubo, sonegar é Legítima Defesahttp://localhost:${port}`);
+    console.log(`Servidor tá on! imposto é roubo, sonegar é Legítima Defesa  http://localhost:${port}`);
 });
