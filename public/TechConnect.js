@@ -72,8 +72,9 @@ async function deleteRow(button) {
     const id = row.cells[0].textContent;
     const tableId = row.parentElement.parentElement.id;
     const endpoint = `/${tableId.replace('Table', '')}/${id}`;
-
- 
+    
+    console.log(`Endpoint de exclusão: ${endpoint}`);
+    
     const response = await fetch(endpoint, {
         method: 'DELETE',
         headers: {
