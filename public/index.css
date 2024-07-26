@@ -1,0 +1,151 @@
+/* Reset básico para remover margens e preenchimentos padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo básico do corpo */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+}
+
+/* Estilo do contêiner */
+#container {
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 8px;
+    width: 100%;
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+/* Estilo da navegação */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    background-color: #1e1e1e;
+    width: 100%;
+    padding: 10px 0;
+    border-radius: 8px;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav a {
+    color: #ffa500;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+/* Estilo das seções */
+.section {
+    display: none;
+}
+
+.section h2 {
+    color: #ffa500;
+    margin-bottom: 10px;
+}
+
+/* Estilo dos formulários */
+form {
+    background-color: #2e2e2e;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #ffa500;
+}
+
+form input, form textarea, form button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ffa500;
+    border-radius: 4px;
+    background-color: #1e1e1e;
+    color: #ffffff;
+}
+
+form input:focus, form textarea:focus {
+    outline: none;
+    border-color: #ffffff;
+}
+
+form button {
+    background-color: #ffa500;
+    color: #1e1e1e;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+form button:hover {
+    background-color: #ffffff;
+    color: #1e1e1e;
+}
+
+/* Estilo das tabelas */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    border: 1px solid #ffa500;
+    text-align: left;
+}
+
+table th {
+    background-color: #2e2e2e;
+    color: #ffa500;
+}
+
+table td {
+    background-color: #1e1e1e;
+}
+
+table tr:nth-child(even) td {
+    background-color: #2e2e2e;
+}
+
+/* Estilo dos botões de ação */
+table button {
+    background-color: #ffa500;
+    color: #1e1e1e;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+table button:hover {
+    background-color: #ffffff;
+    color: #1e1e1e;
+}
+
+/* Mostrar a seção ativa */
+.section.active {
+    display: block;
+}

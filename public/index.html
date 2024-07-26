@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Gestão</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href="#" onclick="showSection('clientes')">Clientes</a></li>
+            <li><a href="#" onclick="showSection('produtos')">Produtos</a></li>
+            <li><a href="#" onclick="showSection('funcionarios')">Funcionários</a></li>
+        </ul>
+    </nav>
+    <div id="container">
+        <section id="clientes" class="section">
+            <h2>Clientes</h2>
+            <!-- Formulário de Cliente -->
+            <form id="clienteForm" onsubmit="submitForm(event, 'cliente')">
+                <input type="hidden" id="clienteId">
+                <label for="clienteNome">Nome:</label>
+                <input type="text" id="clienteNome" name="nome" required>
+                <label for="clienteCpf">CPF:</label>
+                <input type="text" id="clienteCpf" name="cpf" required>
+                <label for="clienteDataNascimento">Data de Nascimento:</label>
+                <input type="date" id="clienteDataNascimento" name="datanascimento">
+                <label for="clienteCelular">Celular:</label>
+                <input type="text" id="clienteCelular" name="celular">
+                <label for="clienteEndereco">Endereço:</label>
+                <input type="text" id="clienteEndereco" name="endereco">
+                <button type="submit">Salvar</button>
+                <button type="button" onclick="editRow()">Editar</button>
+                <button type="button" onclick="deleteRow()">Excluir</button>
+                <button type="button" onclick="cancelEdit()">Cancelar</button>
+            </form>
+            <!-- Tabela de Clientes -->
+            <table id="clienteTable">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Data de Nascimento</th>
+                        <th>Celular</th>
+                        <th>Endereço</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <section id="produtos" class="section">
+            <h2>Produtos</h2>
+            <!-- Formulário de Produto -->
+            <form id="produtoForm" onsubmit="submitForm(event, 'produto')">
+                <input type="hidden" id="produtoId">
+                <label for="produtoNome">Nome:</label>
+                <input type="text" id="produtoNome" name="nome" required>
+                <label for="produtoFabricante">Fabricante:</label>
+                <input type="text" id="produtoFabricante" name="fabricante" required>
+                <label for="produtoModelo">Modelo:</label>
+                <input type="text" id="produtoModelo" name="modelo">
+                <label for="produtoAno">Ano:</label>
+                <input type="number" id="produtoAno" name="ano">
+                <label for="produtoDescricao">Descrição:</label>
+                <textarea id="produtoDescricao" name="descricao"></textarea>
+                <label for="produtoPreco">Preço:</label>
+                <input type="number" step="0.01" id="produtoPreco" name="preco" required>
+                <button type="submit">Salvar</button>
+                <button type="button" onclick="editRow()">Editar</button>
+                <button type="button" onclick="deleteRow()">Excluir</button>
+                <button type="button" onclick="cancelEdit()">Cancelar</button>
+            </form>
+            <!-- Tabela de Produtos -->
+            <table id="produtoTable">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Fabricante</th>
+                        <th>Modelo</th>
+                        <th>Ano</th>
+                        <th>Descrição</th>
+                        <th>Preço</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+
+        <section id="funcionarios" class="section">
+            <h2>Funcionários</h2>
+            <!-- Formulário de Funcionário -->
+            <form id="funcionarioForm" onsubmit="submitForm(event, 'funcionario')">
+                <input type="hidden" id="funcionarioId">
+                <label for="funcionarioNome">Nome:</label>
+                <input type="text" id="funcionarioNome" name="nome" required>
+                <label for="funcionarioDataNascimento">Data de Nascimento:</label>
+                <input type="date" id="funcionarioDataNascimento" name="datanascimento">
+                <label for="funcionarioCpf">CPF:</label>
+                <input type="text" id="funcionarioCpf" name="cpf" required>
+                <label for="funcionarioCelular">Celular:</label>
+                <input type="text" id="funcionarioCelular" name="celular">
+                <label for="funcionarioEndereco">Endereço:</label>
+                <input type="text" id="funcionarioEndereco" name="endereco">
+                <label for="funcionarioFuncao">Função:</label>
+                <input type="text" id="funcionarioFuncao" name="funcao" required>
+                <button type="submit">Salvar</button>
+                <button type="button" onclick="editRow()">Editar</button>
+                <button type="button" onclick="deleteRow()">Excluir</button>
+                
+            </form>
+            <!-- Tabela de Funcionários -->
+            <table id="funcionarioTable">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Data de Nascimento</th>
+                        <th>CPF</th>
+                        <th>Celular</th>
+                        <th>Endereço</th>
+                        <th>Função</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </section>
+    </div>
+    <script src="TechConnect.js"></script>
+</body>
+</html>
